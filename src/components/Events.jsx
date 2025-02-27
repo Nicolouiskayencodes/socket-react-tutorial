@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export function Events({ events }) {
   return (
     <ul>
@@ -8,4 +10,8 @@ export function Events({ events }) {
     }
     </ul>
   );
+}
+
+Events.propTypes = {
+  events: PropTypes.object
 }
