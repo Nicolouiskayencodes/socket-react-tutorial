@@ -8,7 +8,6 @@ export function MyForm() {
   function onSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
-
     socket.timeout(5000).emit('chat message', value, () => {
       setIsLoading(false);
     });
