@@ -1,16 +1,22 @@
-import { Children, createContext, useContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
 const MessageContext = createContext({
   messages: [],
   addMessage: () => {}
 })
 
-export const MessageProvider = () => {
-  const {messages, setMessages} = useState([]);
-  const addMessage = (message) => 
+export const MessageProvider = ({children}) => {
+  const [messages, setMessages] = useState([]);
+  const addMessage = (message) => {
+    console.log('add message')
     setMessages([...messages, message])
+  }
+  const value = {
+    messages,
+    addMessage
+  }
   return(
-    <MessageContext.Provider value={{messages, addMessage}} >{Children}</MessageContext.Provider>
+    <MessageContext.Provider value={value} >{children}</MessageContext.Provider>
   )
 }
 

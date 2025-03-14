@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { socket } from './socket.js';
 import { ConnectionManager } from './components/connectionManage.jsx';
 import { MessageProvider } from './context.jsx';
+import { Messages } from './components/messages.jsx';
 import './App.css'
 
 
@@ -42,7 +43,7 @@ function App() {
       <ConnectionManager />
       <Messages />
       <form id="form" action="">
-        <input id="input" autocomplete="off" ref={input}/><button onClick={sendMessage}>Send</button>
+        <input id="input" ref={input}/><button onClick={sendMessage}>Send</button>
       </form>
     </MessageProvider>
     </>
