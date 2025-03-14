@@ -16,7 +16,7 @@ export function Messages() {
 }, [addMessage])
   return(
     <ul>
-      {/* {messages.messages.map(message => <li key={messages.indexOf(message)}>{message.content}</li>)} */}
+      {messages.map(message => <li key={messages.indexOf(message)}>{message}</li>)}
     </ul>
   )
 }
