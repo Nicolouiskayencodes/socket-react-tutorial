@@ -5,9 +5,10 @@ export function Messages() {
   const {messages, addMessage} = useMessageContext()
   console.log(messages)
   useEffect(() => {
-  function onMessage(msg) {
+  function onMessage(msg, serverOffset) {
     console.log(msg)
     addMessage(msg)
+    socket.auth.serverOffset = serverOffset;
   }
   socket.on('chat message',onMessage)
   return() => {
