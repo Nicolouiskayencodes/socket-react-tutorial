@@ -40,6 +40,7 @@ function App() {
   return (
     <>
     <MessageProvider>
+      {(isConnected) ? (<h1>Connected</h1>) : (<h1>Disconnected</h1>)}
       <ConnectionManager />
       <Messages />
       <form id="form" action="">

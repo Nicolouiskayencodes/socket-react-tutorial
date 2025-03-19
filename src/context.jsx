@@ -9,7 +9,7 @@ export const MessageProvider = ({children}) => {
   const [messages, setMessages] = useState([]);
   const addMessage = (message) => {
     console.log('add message')
-    setMessages([...messages, message])
+    setMessages(messages => [...messages, message])
   }
   const value = {
     messages,
