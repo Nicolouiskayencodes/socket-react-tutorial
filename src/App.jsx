@@ -5,6 +5,7 @@ import { MessageProvider } from './context.jsx';
 import { Messages } from './components/messages.jsx';
 import './App.css'
 
+let counter = 0;
 
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -32,7 +33,8 @@ function App() {
   function sendMessage(event) {
     event.preventDefault();
     if (input.current.value) {
-      socket.emit('chat message', input.current.value);
+      const clientOffset = `${socket.id}-${counter++}`;
+      socket.emit('chat message', input.current.value, clientOffset);
       input.current.value = '';
     }
   }
